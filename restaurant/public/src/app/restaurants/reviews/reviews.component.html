@@ -1,0 +1,26 @@
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary" [routerLink]="['/write', restaurant['_id'] ]">New review</button>
+<!-- {{ restaurant | json }} -->
+  </div>
+  <br><br>
+  <h3>Reviews for {{ restaurant.name }}</h3>
+  <div id="scroll">
+  <table class="table table-hover" align="left">
+    <thead>
+      <tr class="table-primary d-flex">
+        <th class="col-3">Customer</th>
+        <th class="col-3">Stars</th>
+        <th class="col-6">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let review of reviews" class="d-flex">
+        <td class="col-3">{{ review['customer'] }}</td>
+        <td class="col-3">{{ review['stars'] }}</td>
+        <td class="col-6">{{ review['description'] }}</td>
+      
+      </tr>
+    </tbody>
+  </table> 
+  </div>

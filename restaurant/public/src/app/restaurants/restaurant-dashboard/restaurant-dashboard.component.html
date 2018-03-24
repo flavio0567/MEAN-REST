@@ -1,0 +1,27 @@
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-secondary" [routerLink]="['/new']">New restaurant</button>
+  <!-- <button type="button" class="btn btn-secondary" [routerLink]="['/status/game/1']">Manage Player Status</button>
+  <button type="button" class="btn btn-secondary" (click)="logout()">Logout</button> -->
+</div>
+<br><br>
+<div id="scroll">
+<table class="table table-hover" align="left">
+  <thead>
+    <tr class="table-primary d-flex">
+      <th class="col-3">Restaurant</th>
+      <th class="col-3">Cuisine</th>
+      <th class="col-6">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- {{ restaurant | json }} -->
+    <tr *ngFor="let restaurant of restaurants" class="d-flex">
+      <td class="col-3">{{ restaurant['name'] }}</td>
+      <td class="col-3">{{ restaurant['cuisine'] }}</td>
+      <td class="col-2"><button [routerLink]="['/reviews', restaurant['_id'] ]" class="btn btn-danger btn-sm">Read reviews</button></td>
+      <td class="col-2"><button [routerLink]="['/edit', restaurant['_id'] ]" class="btn btn-danger btn-sm">Update</button></td>
+      <td class="col-2"><button (click)="deleteRest(restaurant['_id'])" class="btn btn-danger btn-sm">Delete</button></td>
+    </tr>
+  </tbody>
+</table> 
+</div>

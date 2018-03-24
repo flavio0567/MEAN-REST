@@ -1,0 +1,53 @@
+<form (submit)="addRest()" #formData="ngForm" id="newForm">
+  <div class="box0"> 
+    <!-- <h3>Register a restaurant</h3> -->
+    <fieldset>
+      <legend>Register a restaurant</legend>
+      <div class="form-group row">
+        <label for="name">Restaurant Name</label>
+        <input 
+        class="form-control"
+        type="text" 
+        name="name" 
+        minlength=3
+        [(ngModel)]="restaurant.name"
+        #name="ngModel"
+        />
+      </div>
+      <div *ngIf="!name.valid" class="purple">Restaurant name must be at least three characters!</div>
+
+      <div class="form-group row">
+        <label for="cuisine">Cuisine</label>
+        <input 
+        class="form-control"
+        type="text" 
+        name="cuisine" 
+        [(ngModel)]="restaurant.cuisine"
+        #cuisine="ngModel"
+        />
+      </div>
+  
+      <button type="button" class="btn btn-secondary" (click)="logout()">Cancel</button>
+      <button type="submit" class="btn btn-primary" [disabled]="formData.invalid">Register</button>
+
+      <div class="errors">
+        <p *ngIf="errors.name" >  {{ errors.name.message }} </p>
+        <p *ngIf="errors.cuisine"> {{ errors.cuisine.message }} </p>        
+      </div>
+ 
+      <div class="blue">
+          <p *ngIf="errors.success" >Successfully saving restaurant</p>  
+      </div>
+
+    </fieldset>
+
+  </div>
+
+</form>
+
+
+
+
+
+
+

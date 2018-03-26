@@ -8,16 +8,6 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
-  // restaurant: {
-  //   name: '',
-  //   cuisine: '',
-  //   reviews:  {
-  //     customer: '',
-  //     stars:  '',
-  //     description:  ''
-  //   },
-  //   id: ''
-  // }
   restaurant = {
     name: '',
     cuisine: '',
@@ -43,10 +33,10 @@ export class ReviewsComponent implements OnInit {
   }
 
   getRestaurant(){
-    console.log('passei aqui compo');
     this._route.paramMap.subscribe(params => {
       this._restaurantService.getRestaurantById(params.get('id'), (res) => {
         this.restaurant = res;
+        console.log('getRestaurant', this.restaurant);
       });
     });
   }

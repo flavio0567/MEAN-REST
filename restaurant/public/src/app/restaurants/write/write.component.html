@@ -1,4 +1,4 @@
-<form (submit)="addReview()" #formData="ngForm" id="reviewForm">
+<form (submit)="addReview($event)" #formData="ngForm" id="reviewForm">
     <div class="box0"> 
       {{ restaurant | json }}
       <!-- <h3>Register a restaurant</h3> -->
@@ -52,7 +52,7 @@
         <div class="blue">
             <p *ngIf="errors.success" >Successfully saving review</p>  
         </div>
-  
+        {{ restaurant }}
       </fieldset>
   
     </div>

@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./restaurant-dashboard.component.css']
 })
 export class RestaurantDashboardComponent implements OnInit {
-  restaurants =  {
+  restaurants =  [{
     name: '',
     cuisine:  ''
-  }
+  }]
 
   constructor(private _restaurantService: RestaurantService, private _router: Router) { }
 

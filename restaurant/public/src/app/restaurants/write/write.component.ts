@@ -12,11 +12,12 @@ export class WriteComponent implements OnInit {
   restaurant = {
     name: '',
     cuisine: '',
-    reviews: {
+    reviews: [{
       customer: '',
       stars: '',
       description: ''
-    }
+    }],
+    id: ''
   }
 
   errors: any = {};
@@ -40,20 +41,18 @@ export class WriteComponent implements OnInit {
     });
   }
 
-  addReview() {
+  addReview(event) {
+    console.log('event:', event);
+    // let id = this.restaurant.id;
     this._restaurantService.newRestaurant(this.restaurant, (res) => { 
       if(res.errors) {
-        console.log('Something went wrong when saving restaurant');
+        console.log('Something went wrong when saving review');
         this.errors = res.errors;
         this._router.navigate(['/reviews/:id']);
       } else {
-        // this.restaurant = {
-        //   name: '',
-        //   cuisine: ''
-        // }
         console.log('successfully saving restaurant');
-        this.errors.success = 'Successfully saving restaurant';
-        this._router.navigate(['/reviews/:id']);
+        this.errors.success = 'Successfully saving review';
+        this._router.navigate(['/reviews/5ab5a7799c3cc33076d9e681']);
       }
       })
     }

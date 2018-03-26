@@ -56,7 +56,6 @@ export class RestaurantService {
   }
 
   getRestaurantById(id, callback) {
-    console.log('passei aqui service');
     this._http.get('/restaurant/' + id ).subscribe(
       (res) => {
         console.log('SUCCESS getting RestauranByID: ', res.json());

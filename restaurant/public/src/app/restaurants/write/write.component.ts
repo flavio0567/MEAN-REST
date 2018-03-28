@@ -50,8 +50,6 @@ export class WriteComponent implements OnInit {
   addReview(restaurant) {
     this.restaurant.reviews = this.newReview;
     this._restaurantService.writeReview(this.restaurant, (res) => { 
-      console.log('voltei do service', res);
-
       if(res.errors) {
         console.log('Something went wrong when saving review');
         this.errors = res.errors;

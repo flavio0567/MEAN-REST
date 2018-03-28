@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./restaurant-edit.component.css']
 })
 export class RestaurantEditComponent implements OnInit {
-  restaurant: {
+  restaurant = {
     name: '',
     cuisine: ''
   }
@@ -26,7 +26,6 @@ export class RestaurantEditComponent implements OnInit {
   }
 
   getRestaurant(){
-    console.log('passei aqui compo');
     this._route.paramMap.subscribe(params => {
       this._restaurantService.getRestaurantById(params.get('id'), (res) => {
         this.restaurant = res;

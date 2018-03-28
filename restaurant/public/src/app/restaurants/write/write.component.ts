@@ -12,12 +12,18 @@ export class WriteComponent implements OnInit {
   restaurant = {
     name: '',
     cuisine: '',
-    reviews: [{
+    id: '',
+    reviews: {
       customer: '',
       stars: '',
       description: ''
-    }],
-    id: ''
+    }
+  }
+
+  newReview = {
+    customer: '',
+    stars: '',
+    description: ''
   }
 
   errors: any = {};
@@ -33,26 +39,27 @@ export class WriteComponent implements OnInit {
   }
 
   getRestaurant(){
-    console.log('passei aqui write');
     this._route.paramMap.subscribe(params => {
       this._restaurantService.getRestaurantById(params.get('id'), (res) => {
+        console.log('res in write:', res);
         this.restaurant = res;
       });
     });
   }
 
-  addReview(event) {
-    console.log('event:', event);
-    // let id = this.restaurant.id;
-    this._restaurantService.newRestaurant(this.restaurant, (res) => { 
+  addReview(restaurant) {
+    this.restaurant.reviews = this.newReview;
+    this._restaurantService.writeReview(this.restaurant, (res) => { 
+      console.log('voltei do service', res);
+
       if(res.errors) {
         console.log('Something went wrong when saving review');
         this.errors = res.errors;
-        this._router.navigate(['/reviews/:id']);
+        this._router.navigate(['/write/' + this.restaurant['_id']]);
       } else {
         console.log('successfully saving restaurant');
         this.errors.success = 'Successfully saving review';
-        this._router.navigate(['/reviews/5ab5a7799c3cc33076d9e681']);
+        this._router.navigate(['/write/' + this.restaurant['_id']]);
       }
       })
     }

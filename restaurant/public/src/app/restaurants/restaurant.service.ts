@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class RestaurantService {
   restaurants;
+  restaurant;
 
   constructor(private _http: Http) { }
 
@@ -55,14 +56,27 @@ export class RestaurantService {
     );
   }
 
-  getRestaurantById(id, callback) {
-    this._http.get('/restaurant/' + id ).subscribe(
+  writeReview(restaurant, callback) {
+    this._http.post('/write/' + restaurant['_id'], restaurant ).subscribe(
       (res) => {
-        console.log('SUCCESS getting RestauranByID: ', res.json());
+        console.log('SUCCESS new review of a restaurant: ', res.json());
         callback(res.json());
       },
       (err) => {
-        console.log('ERROR getting RestaurantByID: ', err);
+        console.log('ERROR new review of a restaurant');
+      }
+    );
+  }
+
+
+  getRestaurantById(id, callback) {
+    this._http.get('/rest/' + id ).subscribe(
+      (res) => {
+        console.log('SUCCESS getting in service RestauranByID: ', res.json());
+        callback(res.json());
+      },
+      (err) => {
+        console.log('ERROR getting in service RestaurantByID: ', err);
       }
     );
   }

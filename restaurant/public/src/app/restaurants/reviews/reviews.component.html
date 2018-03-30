@@ -16,7 +16,7 @@
     </thead>
     <tbody>
 <!-- {{ restaurant.reviews | json }} -->
-      <tr *ngFor="let review of (restaurant.reviews); let i = index" class="d-flex">
+      <tr *ngFor="let review of (restaurant.reviews)" class="d-flex">
         <td class="col-3">{{ review['customer'] }}</td>
         <td class="col-3">{{ review['stars'] }}</td>
         <td class="col-6">{{ review['description'] }}</td>

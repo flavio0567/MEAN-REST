@@ -52,16 +52,13 @@ module.exports = {
     },
     getReviews: (req, res) => {
         Restaurant.findOne({_id: req.params.id})
-        // .populate('reviews')
-        .populate({path: 'Restaurant', reviews: { sort: { 'starts': 1 } } })
+        .populate('reviews')
             .then(restaurant => res.json(restaurant))
             .catch(error => console.log(error));
     },
     getRestaurantById: function(req, res) {
-        console.log('getRestaurantById: ', req.params.id);
         Restaurant.findById({_id: req.params.id})
         .populate('reviews')
-        // .populate({path: 'Restaurant', reviews: { sort: { 'starts': 1 } } })
         .then(restaurant => res.json(restaurant))
         .catch(error => console.log(error));
     },

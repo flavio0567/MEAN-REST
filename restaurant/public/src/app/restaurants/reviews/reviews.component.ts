@@ -24,20 +24,13 @@ export class ReviewsComponent implements OnInit {
 
   ngOnInit() {
     this.getRestaurant();
-    this._restaurantService.sort();
-  }
-
-  getListOfReviews(){
-    this._restaurantService.getReviewsList((res) => {
-      this.restaurant = res;
-    });
   }
 
   getRestaurant(){
     this._route.paramMap.subscribe(params => {
       this._restaurantService.getRestaurantById(params.get('id'), (res) => {
         this.restaurant = res;
-        console.log('getRestaurant', this.restaurant);
+        this._restaurantService.sort(this.restaurant.reviews);
       });
     });
   }

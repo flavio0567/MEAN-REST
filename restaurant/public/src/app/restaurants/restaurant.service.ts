@@ -95,11 +95,8 @@ export class RestaurantService {
     );
   }
 
-  sort() {
-    // this.reviews = this.restaurant.review;
-    console.log('restaurant in service>>> >>>:', this.restaurant);
-    console.log('reviews in service>>> >>>:', this.reviews);
-    this.reviews
+  sort(reviews) {
+    reviews
       .sort((a: Review, b: Review) => {
         return a.stars.valueOf() - b.stars.valueOf();
       })

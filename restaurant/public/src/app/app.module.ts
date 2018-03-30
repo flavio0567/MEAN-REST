@@ -9,12 +9,12 @@ import { AppComponent } from './app.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
 import { RestaurantNewComponent } from './restaurants/restaurant-new/restaurant-new.component';
 import { RestaurantEditComponent } from './restaurants/restaurant-edit/restaurant-edit.component';
-import { RestaurantDeleteComponent } from './restaurants/restaurant-delete/restaurant-delete.component';
 import { PageNotFoundComponent } from './restaurants/page-not-found/page-not-found.component';
 import { RestaurantDashboardComponent } from './restaurants/restaurant-dashboard/restaurant-dashboard.component';
 import { ReviewsComponent } from './restaurants/reviews/reviews.component';
 import { WriteComponent } from './restaurants/write/write.component';
 import { RestaurantService } from './restaurants/restaurant.service';
+import { OrderByPipe } from './restaurants/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -22,11 +22,11 @@ import { RestaurantService } from './restaurants/restaurant.service';
     RestaurantComponent,
     RestaurantNewComponent,
     RestaurantEditComponent,
-    RestaurantDeleteComponent,
     PageNotFoundComponent,
     RestaurantDashboardComponent,
     ReviewsComponent,
-    WriteComponent
+    WriteComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

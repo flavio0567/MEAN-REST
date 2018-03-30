@@ -33,19 +33,13 @@ export class RestaurantNewComponent implements OnInit {
         this.errors = res.errors;
         this._router.navigate(['/new']);
       } else {
-        // this.restaurant = {
-        //   name: '',
-        //   cuisine: ''
-        // }
         console.log('successfully saving restaurant');
-        this.errors.success = 'Successfully saving restaurant';
-        this._router.navigate(['/new']);
+        this._router.navigate(['']);
       }
     })
   }
 
-  logout(user, callback) {
-    console.log('LOGOUT success: Bye');
+  cancel(user, callback) {
     this._router.navigate(['/']);
   }
 }

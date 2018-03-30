@@ -53,7 +53,7 @@ module.exports = {
     getReviews: (req, res) => {
         Restaurant.findOne({_id: req.params.id})
         // .populate('reviews')
-        .populate({path: 'Restaurant', reviews: { sort: { 'starts': -1 } } })
+        .populate({path: 'Restaurant', reviews: { sort: { 'starts': 1 } } })
             .then(restaurant => res.json(restaurant))
             .catch(error => console.log(error));
     },
@@ -61,6 +61,7 @@ module.exports = {
         console.log('getRestaurantById: ', req.params.id);
         Restaurant.findById({_id: req.params.id})
         .populate('reviews')
+        // .populate({path: 'Restaurant', reviews: { sort: { 'starts': 1 } } })
         .then(restaurant => res.json(restaurant))
         .catch(error => console.log(error));
     },
@@ -73,11 +74,6 @@ module.exports = {
         Restaurant.findByIdAndRemove({_id: req.params.id})
             .then(restaurant => res.json(restaurant))
             .catch(error => console.log(error));
-    },
-    // write: (req, res) => {
-    //     Restaurant.update( { _id: req.params.id }, { reviews: req.body.restaurantl.reviews })
-    //         .then(restaurant => res.json(restaurant))
-    //         .catch(error => console.log(error));
-    // }
+    }
 
 }

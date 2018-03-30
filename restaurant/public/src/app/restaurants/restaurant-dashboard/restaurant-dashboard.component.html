@@ -14,14 +14,15 @@
     </tr>
   </thead>
   <tbody>
-    <!-- {{ restaurant | json }} -->
     <tr *ngFor="let restaurant of restaurants" class="d-flex">
-      {{ restaurant.createdAt | json }} 
       <td class="col-3">{{ restaurant['name'] }}</td>
       <td class="col-3">{{ restaurant['cuisine'] }}</td>
       <td class="col-2"><button [routerLink]="['/reviews', restaurant['_id'] ]" class="btn btn-danger btn-sm">Read reviews</button></td>
       <td class="col-2"><button [routerLink]="['/edit', restaurant['_id'] ]" class="btn btn-danger btn-sm">Update</button></td>
-      <td class="col-2"><button  ng-disabled="restaurant.createdAt" (click)="deleteRest(restaurant['_id'])" class="btn btn-danger btn-sm">Delete</button></td>
+      <td class="col-2" *ngIf="(now | date : 'hhmmss') - (restaurant.createdAt | date : 'hhmmss') > 30">
+        <button [disabled]="buttonEnabled" (click)="deleteRest(restaurant['_id'])" class="btn btn-danger btn-sm" >Delete</button></td>
+      <td class="col-2" *ngIf="(now | date : 'hhmmss') - (restaurant.createdAt | date : 'hhmmss') < 30">
+          <button [disabled]="buttonDisabled" (click)="deleteRest(restaurant['_id'])" class="btn btn-danger btn-sm" >Delete</button></td>
     </tr>
   </tbody>
 </table> 

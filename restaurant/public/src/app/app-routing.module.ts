@@ -4,7 +4,6 @@ import { RestaurantComponent } from './restaurants/restaurant/restaurant.compone
 import { RestaurantDashboardComponent } from './restaurants/restaurant-dashboard/restaurant-dashboard.component';
 import { RestaurantNewComponent } from './restaurants/restaurant-new/restaurant-new.component';
 import { RestaurantEditComponent } from './restaurants/restaurant-edit/restaurant-edit.component';
-import { RestaurantDeleteComponent } from './restaurants/restaurant-delete/restaurant-delete.component';
 import { PageNotFoundComponent } from './restaurants/page-not-found/page-not-found.component';
 import { WriteComponent } from './restaurants/write/write.component';
 import { ReviewsComponent } from './restaurants/reviews/reviews.component';
@@ -23,11 +22,6 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: RestaurantEditComponent,
-    pathMatch: 'full'
-  },
-  {
-    path: 'delete/:id',
-    component: RestaurantDeleteComponent,
     pathMatch: 'full'
   },
   {

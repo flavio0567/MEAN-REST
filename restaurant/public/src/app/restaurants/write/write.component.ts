@@ -55,15 +55,14 @@ export class WriteComponent implements OnInit {
         this.errors = res.errors;
         this._router.navigate(['/write/' + this.restaurant['_id']]);
       } else {
-        console.log('successfully saving restaurant');
-        this.errors.success = 'Successfully saving review';
-        this._router.navigate(['/write/' + this.restaurant['_id']]);
+        // console.log('successfully saving restaurant');
+        // this.errors.success = 'Successfully saving review';
+        this._router.navigate(['/reviews/' + this.restaurant['_id']]);
       }
       })
     }
 
-  logout(user, callback) {
-    console.log('LOGOUT success: Bye');
-    this._router.navigate(['/']);
+  cancel() {
+    this._router.navigate(['/reviews/' + this.restaurant['_id']]);
   }
 }

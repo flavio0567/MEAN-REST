@@ -24,6 +24,7 @@ export class ReviewsComponent implements OnInit {
 
   ngOnInit() {
     this.getRestaurant();
+    this._restaurantService.sort();
   }
 
   getListOfReviews(){
@@ -41,15 +42,8 @@ export class ReviewsComponent implements OnInit {
     });
   }
 
-  // createReview(createForm) {
-  //   this.newIngredient.id = this.recipie['_id'];
-  //   this.newIngredient.ingredient = createForm.value;
-  //   this._recipieService.updateRecipie(this.newIngredient, (res) => {
-  //   this.recipie = res;
-  //   this.getRecipie();
-  //   });
-  // }
-
-
+  cancel() {
+    this._router.navigate(['']);
+  }
 
 }

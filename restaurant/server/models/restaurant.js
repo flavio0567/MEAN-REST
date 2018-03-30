@@ -9,6 +9,7 @@ const RestaurantSchema = new Schema({
         type: String,
         required: [true, "Restaurants Name is required"],
         minlength: 3,
+        unique: true,
         trim: true
     },
     cuisine: {

@@ -1,6 +1,7 @@
 <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary" [routerLink]="['/write', restaurant['_id'] ]">New review</button>
-<!-- {{ restaurant | json }} -->
+  <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+  <button type="button" class="btn btn-secondary" [routerLink]="['/write', restaurant['_id'] ]">New review</button>
+
   </div>
   <br><br>
   <h3>Reviews for {{ restaurant.name }}</h3>
@@ -15,7 +16,7 @@
     </thead>
     <tbody>
 <!-- {{ restaurant.reviews | json }} -->
-      <tr *ngFor="let review of restaurant.reviews" class="d-flex">
+      <tr *ngFor="let review of (restaurant.reviews); let i = index" class="d-flex">
         <td class="col-3">{{ review['customer'] }}</td>
         <td class="col-3">{{ review['stars'] }}</td>
         <td class="col-6">{{ review['description'] }}</td>

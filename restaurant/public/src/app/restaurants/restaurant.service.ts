@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Review } from './review';
 
 @Injectable()
 export class RestaurantService {
   restaurants;
   restaurant;
+  reviews: Review[] = [];
 
   constructor(private _http: Http) { }
 
@@ -92,5 +94,20 @@ export class RestaurantService {
       }
     );
   }
+
+  sort() {
+    // this.reviews = this.restaurant.review;
+    console.log('restaurant in service>>> >>>:', this.restaurant);
+    console.log('reviews in service>>> >>>:', this.reviews);
+    this.reviews
+      .sort((a: Review, b: Review) => {
+        return a.stars.valueOf() - b.stars.valueOf();
+      })
+      .sort((a: Review, b: Review) => {
+        return (a.stars === b.stars ? 0 : (a.stars ? 1 : -1));
+      });
+  }
+    
+
 
 }

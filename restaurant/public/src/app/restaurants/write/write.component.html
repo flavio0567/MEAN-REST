@@ -37,8 +37,7 @@
             />
           </div>
 
-{{ errors | json }}
-        <button type="button" class="btn btn-secondary" (click)="logout()">Cancel</button>
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
         <button type="submit" class="btn btn-primary" [disabled]="formData.invalid">Submit</button>
         <br><br>
         <div class="errors">
@@ -50,7 +49,6 @@
         <div class="blue">
             <p *ngIf="errors.success" >{{ errors.success }}</p>  
         </div>
-        <!-- {{ errors | json }} -->
       </fieldset>
   
     </div>

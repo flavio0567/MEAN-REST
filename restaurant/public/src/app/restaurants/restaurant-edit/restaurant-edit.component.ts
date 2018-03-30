@@ -40,16 +40,15 @@ export class RestaurantEditComponent implements OnInit {
         this.errors = res.errors;
         this._router.navigate(['/edit/'] + restaurant['_id']);
       } else {
-        console.log('successfully saving restaurant');
-        this.errors.success = 'Successfully saving restaurant';
-        this._router.navigate(['/edit/'] + restaurant['_id']);
+        // console.log('successfully saving restaurant');
+        // this.errors.success = 'Successfully saving restaurant';
+        this._router.navigate(['']);
       }
     })
   }
 
-  logout(user, callback) {
-    console.log('LOGOUT success: Bye');
-    this._router.navigate(['/']);
+  cancel() {
+    this._router.navigate(['']);
   }
 
 

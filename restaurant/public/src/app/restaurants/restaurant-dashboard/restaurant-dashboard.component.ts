@@ -12,6 +12,9 @@ export class RestaurantDashboardComponent implements OnInit {
     name: '',
     cuisine:  ''
   }]
+  buttonDisabled: boolean = true;
+  buttonEnabled: boolean = false;
+  now: Date = new Date();
 
   constructor(private _restaurantService: RestaurantService, private _router: Router) { }
 

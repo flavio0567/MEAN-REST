@@ -27,7 +27,7 @@
         />
       </div>
   
-      <button type="button" class="btn btn-secondary" (click)="logout()">Cancel</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
       <button type="submit" class="btn btn-primary" [disabled]="formData.invalid">Register</button>
 
       <div class="errors">
@@ -35,9 +35,9 @@
         <p *ngIf="errors.cuisine"> {{ errors.cuisine.message }} </p>        
       </div>
  
-      <div class="blue">
+      <!-- <div class="blue">
           <p *ngIf="errors.success" >Successfully saving restaurant</p>  
-      </div>
+      </div> -->
 
     </fieldset>
 
